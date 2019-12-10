@@ -7,9 +7,9 @@
 
 ## 2.支持渐变色
 <div>
-<image hspace="20" src="https://github.com/vivian8725118/SlidingTab/blob/master/app/art/slidingtab8.png" width=30% height=30%/>
-        <image hspace="20" src="https://github.com/vivian8725118/SlidingTab/blob/master/app/art/slidingtab7.png" width=30% height=30%/>
-        <image hspace="20" src="https://github.com/vivian8725118/SlidingTab/blob/master/app/art/slidingtab6.png" width=30% height=30%/>
+<image hspace="2" src="https://github.com/vivian8725118/SlidingTab/blob/master/app/art/slidingtab8.png" width=30% height=30%/>
+        <image hspace="2" src="https://github.com/vivian8725118/SlidingTab/blob/master/app/art/slidingtab7.png" width=30% height=30%/>
+        <image hspace="2" src="https://github.com/vivian8725118/SlidingTab/blob/master/app/art/slidingtab6.png" width=30% height=30%/>
 </div>
 
 ## 3.支持颜色修改
