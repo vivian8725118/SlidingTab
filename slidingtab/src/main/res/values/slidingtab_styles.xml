@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SlidingTab">
+        <attr name="textSize" format="dimension" />
+        <attr name="radius" format="dimension" />
+        <attr name="tabHeight" format="dimension" />
+        <attr name="mainColor" format="color" />
+        <attr name="mainColorRes" format="reference" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+    </declare-styleable>
+</resources>
