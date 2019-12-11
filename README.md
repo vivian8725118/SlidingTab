@@ -20,13 +20,13 @@
 # 使用
 ## 1、导入包
 
-```
+```groovy
 implementation 'com.vivian.widgets:slidingtab:1.0'
 
 ```
 
 ## 2、 在xml中设置
-```
+```xml
 <com.vivian.slidingtab.SlidingTab
         android:id="@+id/sliding_tab"
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@ implementation 'com.vivian.widgets:slidingtab:1.0'
         android:layout_gravity="center"
         android:layout_height="wrap_content"/>
   ```
-
+  
         app:strokeWidth="2dp"   //设置外围线框宽度
         app:mainColor="#1A51AD"  //设置主色
         app:mainColorRes="@color/colorAccent"  //设置主色资源
@@ -52,20 +52,21 @@ implementation 'com.vivian.widgets:slidingtab:1.0'
         app:startColor="#a1aa0b"  //设置渐变色起始颜色
         app:endColor="#1F8F70"   //设置渐变色结束颜色
 
+
 ## 3、 在java中设置
 
 ### 3.1 设置titles
-```        
+```java       
 slidingTab.setTitles("课程", "文档");
 ```
 或者
-```
+```java
 slidingTab.setTitles(List<String> titles) 
 ```
 
 ### 3.2 绑定ViewPager的onPageChangeListener
 
-```
+```java
  viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
