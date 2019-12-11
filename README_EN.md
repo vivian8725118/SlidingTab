@@ -1,5 +1,8 @@
 # SlidingTab
-SlidingTab which can cross tab and word,and you can set gradient color.
+SlidingTab which can cross tab and word,and you can set a gradient color for the whole tab widget.
+
+![中文版README](https://github.com/vivian8725118/SlidingTab/blob/master/README.md)
+
 # Feature
 
 ## 1.Support cross tab and word
@@ -44,23 +47,23 @@ implementation 'com.vivian.widgets:slidingtab:1.0'
         android:layout_height="wrap_content"/>
   ```
 
-        app:strokeWidth="2dp"   //设置外围线框宽度
-        app:mainColor="#1A51AD"  //设置主色
-        app:mainColorRes="@color/colorAccent"  //设置主色资源
-        app:radius="100dp"  //设置圆角尺寸
-        app:tabHeight="100dp" //设置tab高度
-        app:textSize="16sp"  //设置字体大小
-        app:startColor="#a1aa0b"  //设置渐变色起始颜色
-        app:endColor="#1F8F70"   //设置渐变色结束颜色
+        app:strokeWidth="2dp"   //set the width of outside roundrect
+        app:mainColor="#1A51AD"  //set main color of the whole tab
+        app:mainColorRes="@color/colorAccent"  //set main color resource.If set both "mainColor" and "mainColorRes",it will show as "mainColorRes“
+        app:radius="100dp"  //set roundcorner radius size
+        app:tabHeight="100dp" //set the height of tab
+        app:textSize="16sp"  //set textsize
+        app:startColor="#a1aa0b"  //set start color of gradient part
+        app:endColor="#1F8F70"   //set end color of gradient part
 
 ## 3、 Write in Java code
 
 ### 3.1 Set titles
 
 ```java        
-slidingTab.setTitles("课程", "文档");
+slidingTab.setTitles("Course", "Document");
 ```
-或者
+or
 
 ```java
 slidingTab.setTitles(List<String> titles) 
@@ -72,13 +75,13 @@ slidingTab.setTitles(List<String> titles)
  viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-               //设置滚动位移
+               //set scroll offset
                 slidingTab.setScrollFromCurrentPosition(position,positionOffset);
             }
 
             @Override
             public void onPageSelected(int position) {
-            //设置当前position
+            //set current position
                 slidingTab.setCurrentPostion(position);
             }
 
