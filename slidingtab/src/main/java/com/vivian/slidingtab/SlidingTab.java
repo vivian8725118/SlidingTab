@@ -11,7 +11,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -30,7 +30,7 @@ import java.util.List;
  * <p>
  * Created by vivian on 2019-12-05.
  */
-public class SlidingTab extends LinearLayout {
+public class SlidingTab extends View {
     public static final float DEFAULT_TEXT_SIZE = 16f;
     public static final int DEFAULT_RADIUS = 200;
     public static final int DEFAULT_TAB_HEIGHT = 100;
