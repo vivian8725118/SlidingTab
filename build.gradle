@@ -32,8 +32,8 @@ ext {
 
     minSdkVersion = 9
     targetSdkVersion = 21
-    versionCode = 20181210
-    versionName = "1.0"
+    versionCode = 20181211
+    versionName = "1.0.2"
 
     pomPackaging = "aar"
     pomName = "SlidingTab"

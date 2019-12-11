@@ -13,13 +13,13 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * *          _       _
@@ -40,11 +40,18 @@ public class SlidingTab extends View {
     private Paint mTextPaint;
     private RectF mRect;
     private RectF mTabRect;
+
     /**
-     * dp
+     * Text size,default value is {@link #DEFAULT_TEXT_SIZE}
      */
     private float mTextSize = DEFAULT_TEXT_SIZE;
+    /**
+     * The radius size of round rect corner,default value is {@link #DEFAULT_RADIUS}
+     */
     private int mRadius = DEFAULT_RADIUS;
+    /**
+     * The height of the tab,default value is {@link #DEFAULT_TAB_HEIGHT}
+     */
     private int mTabHeight = DEFAULT_TAB_HEIGHT;
     private int width;
     private int mHeight;
@@ -52,24 +59,46 @@ public class SlidingTab extends View {
     private float mDistance;
     private float mBaseline;
     /**
-     * px
+     * The width of outside round rect.The unit is pixel.
      */
     private float mStrokeWidth = DEFAULT_STROKE_WIDTH;
     /**
-     * default tab's count is 2
+     * The count of tabs.
+     * <p>
+     * Default tab's count is 2.
      */
     private int mTabCount = 2;
+    /**
+     * Main color of tab.
+     */
     private int mMainColor = Color.BLUE;
+    /**
+     * Main color resource of tab.
+     * <p>
+     * If both {@link #mMainColor} and {@link #mMainColorRes} are set,{@link #mMainColorRes} will be ignored.
+     */
     private int mMainColorRes;
     private int mBgColor = Color.WHITE;
     private int mCurrentPosition = 0;
-    private int mStartColor;
-    private int mEndColor;
     private int mCurrentLeft = 0;
     private float mCurrentOffset = 0;
     private int mScrollPosition = 0;
-    private List<String> mTitles = new ArrayList<>();
+    /**
+     * Start color of gradient part.
+     */
+    private int mStartColor;
+    /**
+     * End color of gradient part.
+     */
+    private int mEndColor;
     private LinearGradient mLinearGradient;
+
+    /**
+     * The words you may want to show in each tab.
+     * <p>
+     * Use with{@link #setTitles(String...)} or {@link #setTitles(List)}.
+     */
+    private List<String> mTitles = new ArrayList<>();
 
     public SlidingTab(Context context) {
         super(context);
@@ -208,7 +237,7 @@ public class SlidingTab extends View {
     }
 
     /**
-     * 更新位置
+     * Update tab position
      *
      * @param newX
      */

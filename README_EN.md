@@ -24,7 +24,7 @@ SlidingTab which can cross tab and word,and you can set a gradient color for the
 ## 1. Import package 
 
 ```groovy
-implementation 'com.vivian.widgets:slidingtab:1.0'
+implementation 'com.vivian.widgets:slidingtab:1.0.2'
 
 ```
 
@@ -49,7 +49,7 @@ implementation 'com.vivian.widgets:slidingtab:1.0'
 
         app:strokeWidth="2dp"   //set the width of outside roundrect
         app:mainColor="#1A51AD"  //set main color of the whole tab
-        app:mainColorRes="@color/colorAccent"  //set main color resource.If set both "mainColor" and "mainColorRes",it will show as "mainColorRes“
+        app:mainColorRes="@color/colorAccent"  //set main color resource.If both "mainColor" and "mainColorRes" are set,it will show as "mainColorRes“
         app:radius="100dp"  //set roundcorner radius size
         app:tabHeight="100dp" //set the height of tab
         app:textSize="16sp"  //set textsize
