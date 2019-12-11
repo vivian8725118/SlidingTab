@@ -2,7 +2,6 @@ package com.vivian.slidingtab;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,25 +29,7 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
 
         slidingTab.setTitles("课程", "文档");
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                Log.e("MainActivity","onPageScrolled:"+position);
-                slidingTab.setScrollFromCurrentPosition(position,positionOffset);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                slidingTab.setCurrentPostion(position);
-                Log.e("MainActivity","onPageSelected:"+position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        slidingTab.bindViewPager(viewPager);
     }
 
 
