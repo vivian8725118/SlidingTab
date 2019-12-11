@@ -18,8 +18,14 @@
 </div>
 
 # 使用
+## 1、导入包
 
-## 1、 在xml中设置
+```
+implementation 'com.vivian.widgets:slidingtab:1.0'
+
+```
+
+## 2、 在xml中设置
 ```
 <com.vivian.slidingtab.SlidingTab
         android:id="@+id/sliding_tab"
@@ -46,9 +52,9 @@
         app:startColor="#a1aa0b"  //设置渐变色起始颜色
         app:endColor="#1F8F70"   //设置渐变色结束颜色
 
-## 2、 在java中设置
+## 3、 在java中设置
 
-### 2.1 设置titles
+### 3.1 设置titles
 ```        
 slidingTab.setTitles("课程", "文档");
 ```
@@ -57,7 +63,7 @@ slidingTab.setTitles("课程", "文档");
 slidingTab.setTitles(List<String> titles) 
 ```
 
-### 2.2 绑定ViewPager的onPageChangeListener
+### 3.2 绑定ViewPager的onPageChangeListener
 
 ```
  viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
