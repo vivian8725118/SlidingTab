@@ -1,7 +1,7 @@
 # SlidingTab
 SlidingTab which can cross tab and word,and you can set a gradient color for the whole tab widget.
 
-![中文版README](https://github.com/vivian8725118/SlidingTab/blob/master/README.md)
+[中文版README](https://github.com/vivian8725118/SlidingTab/blob/master/README.md)
 
 # Feature
 

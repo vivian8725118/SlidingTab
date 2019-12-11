@@ -1,7 +1,7 @@
 # SlidingTab
 可以交叉tab和文字的SlidingTab，支持设置渐变色。
 
-![ENGLISH_VERSION_README](https://github.com/vivian8725118/SlidingTab/blob/master/README_EN.md)
+[ENGLISH_VERSION_README](https://github.com/vivian8725118/SlidingTab/blob/master/README_EN.md)
 
 # 功能
 
