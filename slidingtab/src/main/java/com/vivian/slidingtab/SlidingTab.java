@@ -12,7 +12,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import androidx.core.content.ContextCompat;
  * <p>
  * Created by vivian on 2019-12-05.
  */
-public class SlidingTab extends LinearLayout {
+public class SlidingTab extends View {
 
     public SlidingTab(Context context) {
         super(context);
@@ -73,7 +73,7 @@ public class SlidingTab extends LinearLayout {
         ta.recycle();
     }
 
-    public static final float DEFAULT_TEXT_SIZE = 16f;
+    public static final float DEFAULT_TEXT_SIZE = 32f;
     public static final int DEFAULT_RADIUS = 200;
     public static final int DEFAULT_TAB_HEIGHT = 100;
     public static final int DEFAULT_STROKE_WIDTH = 2;
@@ -82,9 +82,7 @@ public class SlidingTab extends LinearLayout {
     Paint mTextPaint;
     RectF mRect;
     RectF mTabRect;
-    /**
-     * dp
-     */
+
     float mTextSize = DEFAULT_TEXT_SIZE;
     int mRadius = DEFAULT_RADIUS;
     int mTabHeight = DEFAULT_TAB_HEIGHT;
@@ -183,7 +181,7 @@ public class SlidingTab extends LinearLayout {
 
         //渐变色
         if (mStartColor != 0 && mEndColor != 0) {
-            mLinearGradient = new LinearGradient(0,0, width, height, mStartColor, mEndColor, Shader.TileMode.CLAMP);
+            mLinearGradient = new LinearGradient(0, 0, width, height, mStartColor, mEndColor, Shader.TileMode.CLAMP);
             mPaint.setShader(mLinearGradient);
             mTextPaint.setShader(mLinearGradient);
         }
