@@ -72,24 +72,7 @@ slidingTab.setTitles(List<String> titles)
 ### 3.2 Bind ViewPager.onPageChangeListener
 
 ```java
- viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-               //set scroll offset
-                slidingTab.setScrollFromCurrentPosition(position,positionOffset);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-            //set current position
-                slidingTab.setCurrentPostion(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+slidingTab.bindViewPager(viewPager);
 ```
 
 # License

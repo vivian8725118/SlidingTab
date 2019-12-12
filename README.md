@@ -70,24 +70,7 @@ slidingTab.setTitles(List<String> titles)
 ### 3.2 绑定ViewPager的onPageChangeListener
 
 ```java
- viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-               //设置滚动位移
-                slidingTab.setScrollFromCurrentPosition(position,positionOffset);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-            //设置当前position
-                slidingTab.setCurrentPostion(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+slidingTab.bindViewPager(viewPager);
 ```
 
 # License
