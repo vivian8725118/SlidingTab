@@ -155,6 +155,7 @@ public class SlidingTab extends View {
         mTextPaint = new Paint();
         mTextPaint.setColor(mMainColor);
         mTextPaint.setTextSize(mTextSize);
+        mTextPaint.setAntiAlias(true);
         mTextPaint.setTextAlign(Paint.Align.CENTER);
 
         //计算baseline
