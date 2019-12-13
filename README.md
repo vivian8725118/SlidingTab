@@ -24,7 +24,7 @@
 ## 1、导入包
 
 ```groovy
-implementation 'com.vivian.widgets:slidingtab:1.0.3'
+implementation 'com.vivian.widgets:slidingtab:1.0.4'
 
 ```
 
