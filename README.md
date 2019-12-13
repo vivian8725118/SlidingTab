@@ -73,6 +73,18 @@ slidingTab.setTitles(List<String> titles)
 slidingTab.bindViewPager(viewPager);
 ```
 
+
+### 3.3 设置OnTabClickListener
+
+```java
+ slidingTab.setOnTabClickListener(new SlidingTab.OnTabClickListener() {
+            @Override
+            public void onTabClick(int position) {
+                viewPager.setCurrentItem(position);
+            }
+  });
+```
+
 # License
 
     Copyright 2019 Vivian

@@ -11,6 +11,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class SlidingTab extends View {
     private int mTabHeight = DEFAULT_TAB_HEIGHT;
     private int width;
     private int mHeight;
-    private int mTabWidth;
+    private float mTabWidth;
     private float mDistance;
     private float mBaseline;
     /**
@@ -80,7 +81,7 @@ public class SlidingTab extends View {
     private int mMainColorRes;
     private int mBgColor = Color.WHITE;
     private int mCurrentPosition = 0;
-    private int mCurrentLeft = 0;
+    private float mCurrentLeft = 0;
     private float mCurrentOffset = 0;
     private int mScrollPosition = 0;
     /**
@@ -99,6 +100,10 @@ public class SlidingTab extends View {
      * Use with{@link #setTitles(String...)} or {@link #setTitles(List)}.
      */
     private List<String> mTitles = new ArrayList<>();
+    /**
+     * Tab click monitor.
+     */
+    OnTabClickListener mOnTabClickListener;
 
     public SlidingTab(Context context) {
         super(context);
@@ -175,15 +180,14 @@ public class SlidingTab extends View {
         mHeight = h;
 
         mTabHeight = (int) (mHeight - 2 * mStrokeWidth);
+        mRect.set(mStrokeWidth, mStrokeWidth, width - mStrokeWidth, mHeight - mStrokeWidth);
 
         if (mTitles.size() == 0) {
             mTabWidth = 100;
         } else {
             mTabCount = mTitles.size();
-            mTabWidth = (int) (width / mTabCount - mStrokeWidth * 2);
+            mTabWidth = mRect.width() / mTabCount;
         }
-
-        mRect.set(mStrokeWidth, mStrokeWidth, width - mStrokeWidth, mHeight - mStrokeWidth);
 
         //渐变色
         if (mStartColor != 0 && mEndColor != 0) {
@@ -201,39 +205,61 @@ public class SlidingTab extends View {
         canvas.drawColor(mBgColor, PorterDuff.Mode.CLEAR);
 
         //画tab
-        mPaint.setStrokeWidth(mStrokeWidth + 1);
+        mPaint.setStrokeWidth(mStrokeWidth);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        if (mScrollPosition == 0) {
-            mCurrentLeft = mScrollPosition * mTabWidth + (int) (mCurrentOffset * mTabWidth);
-        }
-        mCurrentLeft = mScrollPosition * mTabWidth + (int) (mCurrentOffset * mTabWidth);
-        mTabRect.set(mCurrentLeft + mStrokeWidth, mStrokeWidth, mCurrentLeft + mTabWidth + 2 * mStrokeWidth, mTabHeight + mStrokeWidth);
+        mCurrentLeft = mStrokeWidth + mScrollPosition * mTabWidth + (mCurrentOffset * mTabWidth);
+        mTabRect.set(mCurrentLeft, mStrokeWidth, mCurrentLeft + mTabWidth, mTabHeight + mStrokeWidth);
         canvas.drawRoundRect(mTabRect, mRadius, mRadius, mPaint);
         canvas.save();
 
         //画文字
         if (mTitles.size() > 0) {
             for (int i = 0; i < mTitles.size(); i++) {
-                if (i == mCurrentPosition) {
-                    //画当前文字
-                    mTextPaint.setColor(mMainColor);
-                    mBaseline = mTabRect.centerY() + mDistance;
-                    canvas.drawText(mTitles.get(i), i * mTabWidth + (mTabWidth) / 2, mBaseline, mTextPaint);
-                } else {
-                    mTextPaint.setColor(mMainColor);
-                    mBaseline = mTabRect.centerY() + mDistance;
-                    canvas.drawText(mTitles.get(i), i * mTabWidth + (mTabWidth) / 2, mBaseline, mTextPaint);
-                }
+                mTextPaint.setColor(mMainColor);
+                mBaseline = mTabRect.centerY() + mDistance;
+                canvas.drawText(mTitles.get(i), mStrokeWidth + i * mTabWidth + (mTabWidth) / 2, mBaseline, mTextPaint);
             }
         }
-
         canvas.restoreToCount(layerId);
+
         //底部
         mPaint.setXfermode(null);
         mPaint.setColor(mMainColor);
         mPaint.setStrokeWidth(mStrokeWidth);
         mPaint.setStyle(Paint.Style.STROKE);
         canvas.drawRoundRect(mRect, mRadius, mRadius, mPaint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                float x = event.getX();
+                int position = (int) (x / mTabWidth);
+                if (mOnTabClickListener != null) {
+                    mOnTabClickListener.onTabClick(position);
+                }
+                break;
+            default:
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    public void setOnTabClickListener(OnTabClickListener onTabClickListener) {
+        this.mOnTabClickListener = onTabClickListener;
+    }
+
+    /**
+     * Interface definition for a callback to be invoked when a tab is clicked.
+     */
+    public interface OnTabClickListener {
+        /**
+         * Called when a tab has been clicked.
+         *
+         * @param position The position of tab which is clicked.
+         */
+        void onTabClick(int position);
     }
 
     /**

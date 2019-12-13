@@ -30,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         slidingTab.setTitles("课程", "文档");
         slidingTab.bindViewPager(viewPager);
+
+        slidingTab.setOnTabClickListener(new SlidingTab.OnTabClickListener() {
+            @Override
+            public void onTabClick(int position) {
+                viewPager.setCurrentItem(position);
+            }
+        });
     }
 
 
