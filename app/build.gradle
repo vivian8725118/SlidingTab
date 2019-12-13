@@ -26,5 +26,5 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation project(':slidingtab')//引用第三方项目
-//    implementation 'com.vivian.widgets:slidingtab:1.0'
+//    implementation 'com.vivian.widgets:slidingtab:1.0.3'
 }
